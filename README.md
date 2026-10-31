@@ -57,3 +57,22 @@ Report: reports/network_report_20261031_005306.txt
 - Simulate N2/N3 support scenarios.
 - Maintain technical evidence.
 - Build a professional IT portfolio.
+
+## Test Scenario 03 - Connectivity Failure Diagnosis
+
+The third scenario validates connectivity to a public IP, tests an unreachable reserved documentation address, and checks DNS resolution.
+
+### Observed Results
+
+- Network interface eth0: UP
+- IPv4 address: 172.22.20.62/20
+- Default gateway: 172.22.16.1
+- Public connectivity to 1.1.1.1: 4 packets received, 0% packet loss
+- Reserved address 192.0.2.1: 100% packet loss, as expected
+- DNS resolution for cloudflare.com: successful
+
+### Technical Conclusion
+
+Public IP connectivity and DNS resolution were operational during the test. The lack of response from the reserved documentation address does not indicate a general network failure.
+
+Evidence: evidence/connectivity_failure_20261031_024357.txt

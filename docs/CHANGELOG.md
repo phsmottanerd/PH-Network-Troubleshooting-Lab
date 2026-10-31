@@ -51,3 +51,18 @@ Registro oficial da evolução do projeto.
 
 ### Documentation
 - Updated test-scenarios/02-dns-troubleshooting.md.
+
+## [0.3.0] - 2026-10-31
+
+### Added
+- Connectivity failure diagnosis scenario.
+- Public IP connectivity validation.
+- Test against reserved documentation address 192.0.2.1.
+- DNS resolution verification.
+- Captured diagnostic evidence.
+
+### Results
+- Public connectivity: 0% packet loss.
+- Reserved destination: 100% packet loss, expected.
+- DNS resolution: successful.
+- No network configuration changes performed.
