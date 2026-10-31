@@ -1,78 +1,93 @@
+cat > README.md <<'EOF'
+<div align="center">
 
+# 🖥️ PH-Network-Troubleshooting-Lab
 
-# PH-Troubleshooting
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=39FF14&center=true&vCenter=true&width=900&height=60&lines=LINUX+NETWORK+TROUBLESHOOTING;IT+SUPPORT+N2%2FN3+DIAGNOSTICS+LAB;BASH+%7C+TCP%2FIP+%7C+DNS+%7C+ICMP" alt="Animated terminal title" />
 
-Professional Network Troubleshooting Lab
+### `> Practical Linux Network Diagnostics & Troubleshooting Lab`
 
-## Project Overview
+<br/>
 
-Linux network diagnostics project focused on practical IT Support N2/N3 troubleshooting.
+![Version](https://img.shields.io/badge/VERSION-0.3.0-39D353?style=for-the-badge)
+![Scenarios](https://img.shields.io/badge/TEST_SCENARIOS-03-FFD43B?style=for-the-badge)
+![Platform](https://img.shields.io/badge/PLATFORM-UBUNTU%20%7C%20WSL2-E95420?style=for-the-badge)
+![Status](https://img.shields.io/badge/LAB-OPERATIONAL-00C853?style=for-the-badge)
 
-## Technologies
+<br/>
 
-- Ubuntu Linux
-- WSL2
-- Bash
-- TCP/IP
-- DNS
-- ICMP
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
+![WSL2](https://img.shields.io/badge/Environment-WSL2-0078D6?style=flat-square&logo=windows&logoColor=white)
+![Bash](https://img.shields.io/badge/Shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+![TCP/IP](https://img.shields.io/badge/Networking-TCP%2FIP-2563EB?style=flat-square)
+![DNS](https://img.shields.io/badge/Protocol-DNS-7C3AED?style=flat-square)
+![ICMP](https://img.shields.io/badge/Protocol-ICMP-DC2626?style=flat-square)
+![Git](https://img.shields.io/badge/Version_Control-Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/Repository-GitHub-181717?style=flat-square&logo=github&logoColor=white)
 
-## Implemented Features
+</div>
 
-- Network interface inspection
-- IP address verification
-- Routing table inspection
-- DNS configuration inspection
-- Internet connectivity testing
-- DNS resolution testing
-- Automatic report generation
+---
 
-## Version History
+## 🟢 `01 // PROJECT OVERVIEW`
 
-### v0.1 - Initial Network Diagnostics
+A hands-on Linux infrastructure lab focused on **network troubleshooting, connectivity diagnostics, DNS investigation and technical evidence collection**.
 
-Date: 2026-10-31
+The project demonstrates a structured troubleshooting workflow aligned with practical **IT Support N2/N3** activities.
 
-- Project structure created.
-- Bash diagnostic script implemented.
-- Network connectivity tested.
-- DNS resolution tested.
-- First diagnostic report generated.
+> **Core workflow:** Inspect → Diagnose → Test → Analyze → Document.
 
-## Initial Test Results
+The objective is not just to execute commands, but to interpret diagnostic results and distinguish a real network problem from an expected test outcome.
 
-- Interface: eth0 UP
-- IP: 172.22.20.62/20
-- Gateway: 172.22.16.1
-- Packet loss: 0%
-- Average latency: 11.059 ms
-- DNS: SUCCESS
+## 🧰 `02 // TECHNOLOGY STACK`
 
-Report: reports/network_report_20261031_005306.txt
+| Category | Tools and technologies |
+|---|---|
+| Operating system | Ubuntu 26.04.1 LTS |
+| Environment | Windows Subsystem for Linux 2 (WSL2) |
+| Shell | Bash |
+| Network configuration | `ip`, `ip route` |
+| Connectivity | `ping`, ICMP |
+| DNS diagnostics | `getent`, `nslookup`, `dig` |
+| Report generation | Bash, `tee`, `date` |
+| Version control | Git and GitHub |
 
-## Project Goals
+## ⚡ `03 // IMPLEMENTED CAPABILITIES`
 
-- Develop network troubleshooting skills.
-- Automate Linux diagnostics.
-- Simulate N2/N3 support scenarios.
-- Maintain technical evidence.
-- Build a professional IT portfolio.
+- 🟢 **Network interface inspection** — interface status and IP configuration.
+- 🟢 **Routing analysis** — default gateway and routing table inspection.
+- 🟢 **DNS configuration inspection** — resolver configuration.
+- 🟢 **IP connectivity testing** — ICMP echo requests and packet-loss analysis.
+- 🟢 **DNS resolution testing** — hostname resolution using Linux tools.
+- 🟢 **Resolver comparison** — local DNS resolver versus Cloudflare `1.1.1.1`.
+- 🟢 **Automated diagnostics** — Bash script execution and report generation.
+- 🟢 **Technical evidence** — saved reports and documented test scenarios.
 
-## Test Scenario 03 - Connectivity Failure Diagnosis
+## 💻 `04 // TERMINAL LAB`
 
-The third scenario validates connectivity to a public IP, tests an unreachable reserved documentation address, and checks DNS resolution.
+A snapshot of the diagnostic results collected in the lab:
 
-### Observed Results
-
-- Network interface eth0: UP
-- IPv4 address: 172.22.20.62/20
-- Default gateway: 172.22.16.1
-- Public connectivity to 1.1.1.1: 4 packets received, 0% packet loss
-- Reserved address 192.0.2.1: 100% packet loss, as expected
-- DNS resolution for cloudflare.com: successful
-
-### Technical Conclusion
-
-Public IP connectivity and DNS resolution were operational during the test. The lack of response from the reserved documentation address does not indicate a general network failure.
-
-Evidence: evidence/connectivity_failure_20261031_024357.txt
+```text
+┌─────────────────────────────────────────────────────┐
+│  PH-NETWORK-TROUBLESHOOTING-LAB                      │
+│  SYSTEM: UBUNTU 26.04.1 LTS | WSL2                   │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  $ network-diagnostics --run                        │
+│                                                     │
+│  [ OK ]  Interface eth0 .............. UP           │
+│  [ OK ]  Default route ............... AVAILABLE    │
+│  [ OK ]  Public IP 1.1.1.1 ........... REACHABLE    │
+│  [ OK ]  Packet loss ................. 0%           │
+│  [ OK ]  DNS cloudflare.com .......... RESOLVED     │
+│                                                     │
+│  $ connectivity-test --target 192.0.2.1             │
+│                                                     │
+│  [WARN]  ICMP response ............... NONE         │
+│  [INFO]  Packet loss ................. 100%         │
+│  [INFO]  TEST-NET-1 reserved address .. EXPECTED    │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│  RESULT: DIAGNOSTIC TESTS COMPLETED                  │
+│  EVIDENCE: SAVED                                     │
+└─────────────────────────────────────────────────────┘
